@@ -1,8 +1,15 @@
 const express = require('express');
 const app = express();
-
 const mongoose = require('mongoose');
-mongoose.connect("mongodb://127.0.0.1:27017/BMS");
+
+const db = "mongodb+srv://Saumya:Aidenfalconess@cluster0.oiyq1qf.mongodb.net/Blog?retryWrites=true&w=majority";
+
+
+mongoose.connect(db).then(() => {
+    console.log("Connection to atlas successful");
+}).catch((err) => {
+    console.log(err);
+});
 
 const isBlog = require("./middlewares/isBlog")
 
